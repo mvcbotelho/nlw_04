@@ -1,5 +1,7 @@
 import Head from "next/head";
 
+import { CountdownProvider } from "../context/CountdownContext";
+
 import Profile from "../components/Profile";
 import Countdown from "../components/Countdown";
 import ChallengerBox from "../components/ChallengerBox";
@@ -16,16 +18,18 @@ export default function Home() {
       </Head>
       <ExperienceBar />
 
-      <section>
-        <div>
-          <Profile />
-          <CompleteChallenger />
-          <Countdown />
-        </div>
-        <div>
-          <ChallengerBox />
-        </div>
-      </section>
+      <CountdownProvider>
+        <section>
+          <div>
+            <Profile />
+            <CompleteChallenger />
+            <Countdown />
+          </div>
+          <div>
+            <ChallengerBox />
+          </div>
+        </section>
+      </CountdownProvider>
     </div>
   );
 }
